@@ -1,0 +1,12 @@
+{
+  "pages": [
+     "pages/show/show",
+    "pages/canvas/canvas"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微信小程序",
+    "navigationBarTextStyle": "black"
+  }
+}

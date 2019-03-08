@@ -1,0 +1,7 @@
+<view class="show">
+   <view wx:for="{{imageList}}"  class="image-content">
+        <image src="{{host}}restapi/wesign/v1/tenant/contract/img?contractUrl={{item.contractUrl}}" style="width:100%;height:{{imageHeight}}"></image>
+    </view>
+
+
+</view>

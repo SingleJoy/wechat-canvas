@@ -1,0 +1,8 @@
+.image-content{
+    width: 100%;
+    height: auto;
+}
+.image-content image{
+    width: 100%;
+    height: auto;
+}
