@@ -5,62 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    title:'tab(父组件)传值给header(子组件)'
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  parentMethod() {
+    console.log(this)
+    let footer=this.selectComponent("#footer");
+    console.log(footer)
+    footer.childMethod()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  parentEvent(){
+   console.log("这里本来是父组件的方法，子组件可以通过this.triggerEvent使用")
   }
+
+
 })

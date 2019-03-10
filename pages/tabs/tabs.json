@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "br": "../../component/br/br",
+    "header": "../../component/header/header",
+    "footer": "../../component/footer/footer"
+  }
 }

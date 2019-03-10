@@ -2,7 +2,8 @@
   "pages": [
      "pages/tabs/tabs",
      "pages/canvas/canvas",
-     "pages/show/show"
+     "pages/show/show",
+     "pages/scroll/scroll"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -16,7 +17,6 @@
     "backgroundColor":"#eee",
     "borderStyle":"white",
     "position":"bottom",
-    "fontSize":"30",
     "list": [
       {
         "pagePath": "pages/tabs/tabs",

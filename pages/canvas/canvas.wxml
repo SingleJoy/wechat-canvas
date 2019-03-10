@@ -1,4 +1,4 @@
-<view class="canvasBox" style="width:{{width}};height:{{height}}">
+<view class="canvasBox" style="width:{{width}}px;height:{{height}}px">
     <view class="sign-tips">
        <!--<text>{{tips}}</text>-->
     </view>
@@ -8,7 +8,7 @@
         <button type="button" value="提交" bindtouchstart="saveClick" bindtap="saveClick" class="btn-style sign-submit">提交</button>
     </view>
 
-    <canvas class="firstCanvas" style="width:{{canvasWidth}};height:{{canvasHeight}};border: 1px solid transparent;"
+    <canvas class="firstCanvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;border: 1px solid transparent;"
             canvas-id="firstCanvas"
             bindtouchmove="move"
             bindtouchstart="start"

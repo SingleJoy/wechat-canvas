@@ -1,12 +1,13 @@
 .canvasBox{
     width: 100%;
     height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 .firstCanvas{
-    width: 100%;
-    height: 100%;
     position: relative;
     z-index: 9;
+    box-sizing: border-box;
 }
 .sign-tips{
     width: 100%;
