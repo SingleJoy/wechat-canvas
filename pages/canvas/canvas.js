@@ -28,6 +28,7 @@ wx.getSystemInfo({
         },
         // 画布的触摸移动开始手势响应
         start: function (event) {
+            console.log(event);
             // console.log("触摸开始" + event.changedTouches[0].x)
             // console.log("触摸开始" + event.changedTouches[0].y)
             //获取触摸开始的 x,y
@@ -103,8 +104,8 @@ wx.getSystemInfo({
         //清除操作
         clearClick: function () {
             //清除画布
-            content.clearRect(0, 0, canvasw, canvash)
-            content.draw(true)
+            content.clearRect(0, 0, canvasw, canvash);
+            content.draw(true);
         },
         //保存图片
         saveClick: function () {
@@ -120,7 +121,7 @@ wx.getSystemInfo({
                         encoding: 'base64', //编码格式
                         success: (res) => { //成功的回调
                             // console.log('data:image/png;base64,' + res.data)
-                        let base64=res.data;
+                            let base64=res.data;
                             wx.setStorage({
                                 key: "key",
                                 base64: base64
