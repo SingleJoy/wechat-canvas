@@ -1,0 +1,25 @@
+<view>
+
+    <header title="{{title}}"></header>
+
+    <text>这里是tabs组件</text>
+    <br/>
+
+    <!--<footer id="footer" bindparent="parentEvent">-->
+        <!--<button >footer组件放在slot里面11111</button>-->
+    <!--</footer>-->
+
+    <footer id="footer" bindparent="parentEvent">
+
+    </footer>
+
+    <button bindtap="parentMethod">
+       tabs(父组件) 获取footer(子组件)的方法
+    </button>
+</view>
+
+
+
+
+
+

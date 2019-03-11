@@ -1,0 +1,9 @@
+<view>
+    footer组件
+    <button >父组件会触发这个方法</button>
+    <button type="primary" bindtap="getParent">子组件使用父组件方法</button>
+</view>
+
+<slot>
+
+</slot>

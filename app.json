@@ -1,12 +1,35 @@
 {
   "pages": [
+     "pages/tabs/tabs",
+     "pages/canvas/canvas",
      "pages/show/show",
-    "pages/canvas/canvas"
+     "pages/scroll/scroll"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微信小程序",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color":"#666",
+    "selectedColor":"#f60",
+    "backgroundColor":"#eee",
+    "borderStyle":"white",
+    "position":"bottom",
+    "list": [
+      {
+        "pagePath": "pages/tabs/tabs",
+        "text": "tabs",
+        "iconPath": "images/tabs.png",
+        "selectedIconPath":"images/tabs-active.png"
+      },
+      {
+        "pagePath": "pages/canvas/canvas",
+        "text": "canvas",
+        "iconPath": "images/canvas.png",
+        "selectedIconPath": "images/canvas-active.png"
+      }
+    ]
   }
 }

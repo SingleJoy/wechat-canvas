@@ -21,18 +21,20 @@ wx.getSystemInfo({
         data: {
             signImage: '',
             tips:'请横屏签署',
-            width:width+'px',
-            height:height+"px",
-            canvasWidth:width-40+"px",
-            canvasHeight:height-140+"px",
+            width:width,
+            height:height,
+            canvasWidth:width-40,
+            canvasHeight:height-140,
         },
         // 画布的触摸移动开始手势响应
         start: function (event) {
+            console.log(event);
             // console.log("触摸开始" + event.changedTouches[0].x)
             // console.log("触摸开始" + event.changedTouches[0].y)
             //获取触摸开始的 x,y
             let point = {x: event.changedTouches[0].x, y: event.changedTouches[0].y}
-            touchs.push(point)
+            touchs.push(point);
+
         },
 
         // 画布的触摸移动手势响应
@@ -42,6 +44,7 @@ wx.getSystemInfo({
             if (touchs.length >= 2) {
                 this.draw(touchs)
             }
+          
         },
 
         // 画布的触摸移动结束手势响应
@@ -51,6 +54,7 @@ wx.getSystemInfo({
             for (let i = 0; i < touchs.length; i++) {
                 touchs.pop()
             }
+          
 
         },
 
@@ -93,7 +97,7 @@ wx.getSystemInfo({
         draw: function (touchs) {
             let point1 = touchs[0]
             let point2 = touchs[1]
-            touchs.shift()
+            touchs.shift();
             content.moveTo(point1.x, point1.y)
             content.lineTo(point2.x, point2.y)
             content.stroke()
@@ -103,8 +107,8 @@ wx.getSystemInfo({
         //清除操作
         clearClick: function () {
             //清除画布
-            content.clearRect(0, 0, canvasw, canvash)
-            content.draw(true)
+            content.clearRect(0, 0, canvasw, canvash);
+            content.draw(true);
         },
         //保存图片
         saveClick: function () {
@@ -120,7 +124,7 @@ wx.getSystemInfo({
                         encoding: 'base64', //编码格式
                         success: (res) => { //成功的回调
                             // console.log('data:image/png;base64,' + res.data)
-                        let base64=res.data;
+                            let base64=res.data;
                             wx.setStorage({
                                 key: "key",
                                 base64: base64

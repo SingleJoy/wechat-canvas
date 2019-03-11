@@ -1,0 +1,11 @@
+/* component/header.wxss */
+.header {
+    background: #ff1100;
+    width:100%;
+    line-height: 60rpx;
+    text-align: center;
+}
+.header text{
+    font-size: 30rpx;
+    color: #fff;
+}
