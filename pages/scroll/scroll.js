@@ -1,80 +1,68 @@
 // pages/scroll/scroll.js
 
-let width,height;
-
-
+let height;
 Page({
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    list:[],
-    height:""
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (){
-    let api="http://www.phonegap100.com/appapi.php?a=getPortalList&catid=20&page=1";
-    let that=this;
-    wx.getSystemInfo({
-      success: function (res) {
+    data: {
+        list:[],
+        height:"",
+        scrollTop:'20px',
+        page:1,
+        flag:true
+    },
+    onLoad(){
+        let that=this;
+        wx.getSystemInfo({
+            success: function (res) {
+                that.setData({
+                    height:res.windowHeight
+                })
+            }
+        });
+        that.requestData();
+    },
+    requestData(){
+        let api="http://www.phonegap100.com/appapi.php";
+        let that=this;
         that.setData({
-          height:res.windowHeight
+            flag:false
+        });
+        wx.request({
+            url: api, //仅为示例，并非真实的接口地址
+            data: {
+                a: 'getPortalList',
+                catid: '20',
+                page: that.data.page
+            },
+            header: {
+                'content-type': 'application/json' // 默认值
+            },
+            success: function (res) {
+
+                that.setData({
+                        list:that.data.list.concat(res.data.result),
+                        flag:true
+                    })
+
+            }
         })
-      }
-    })
+    },
 
-  },
+    upper(e){
+        console.log("upper");
+    },
+    lower(e) {
+        if(this.data.flag){
+            this.setData({
+                page:this.data.page+1
+            });
+            this.requestData();
+        }
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+    },
 
-  },
+    scroll(e) {
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
+    }
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

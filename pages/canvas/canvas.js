@@ -8,7 +8,7 @@ var canvasWidth,canvasHeight;
 wx.getSystemInfo({
     success: function (res) {
         canvasw = res.screenWidth;
-        canvash = res.screenHeight;
+        canvash = res.screenHeight-140;
         width=res.screenWidth;
         height=res.screenHeight;
     },
@@ -23,12 +23,12 @@ wx.getSystemInfo({
             tips:'请横屏签署',
             width:width,
             height:height,
-            canvasWidth:width-40,
+            canvasWidth:width,
             canvasHeight:height-140,
         },
         // 画布的触摸移动开始手势响应
         start: function (event) {
-            console.log(event);
+            // console.log(event);
             // console.log("触摸开始" + event.changedTouches[0].x)
             // console.log("触摸开始" + event.changedTouches[0].y)
             //获取触摸开始的 x,y
@@ -60,31 +60,32 @@ wx.getSystemInfo({
 
         // 画布的触摸取消响应
         cancel: function (e) {
-            console.log("触摸取消" + e)
+            // console.log("触摸取消" + e)
         },
 
         // 画布的长按手势响应
         tap: function (e) {
-            console.log("长按手势" + e)
+            // console.log("长按手势" + e)
         },
 
         error: function (e) {
-            console.log("画布触摸错误" + e)
+            // console.log("画布触摸错误" + e)
         },
         /**
          * 生命周期函数--监听页面加载
          */
         onLoad: function (options) {
+            wx.hideTabBar({})
             //获得Canvas的上下文
             content = wx.createCanvasContext('firstCanvas')
             //设置线的颜色
-            content.setStrokeStyle("#000")
+            content.setStrokeStyle("#000");
             //设置线的宽度
-            content.setLineWidth(5)
+            content.setLineWidth(5);
             //设置线两端端点样式更加圆润
-            content.setLineCap('round')
+            content.setLineCap('round');
             //设置两条线连接处更加圆润
-            content.setLineJoin('round')
+            content.setLineJoin('round');
         },
 
         /**
@@ -95,13 +96,13 @@ wx.getSystemInfo({
 
         //绘制
         draw: function (touchs) {
-            let point1 = touchs[0]
-            let point2 = touchs[1]
+            let point1 = touchs[0];
+            let point2 = touchs[1];
             touchs.shift();
-            content.moveTo(point1.x, point1.y)
-            content.lineTo(point2.x, point2.y)
-            content.stroke()
-            content.draw(true)
+            content.moveTo(point1.x, point1.y);
+            content.lineTo(point2.x, point2.y);
+            content.stroke();
+            content.draw(true);
         },
 
         //清除操作
@@ -112,7 +113,23 @@ wx.getSystemInfo({
         },
         //保存图片
         saveClick: function () {
+            var that=this;
+            wx.showModal({
+                title: '提示',
+                content: '确定提交保存',
+                success(res) {
+                    if (res.confirm) {
+                        that.submit()
+                    } else if (res.cancel) {
+                        console.log('用户点击取消')
+                    }
+                }
+            })
 
+
+        },
+        //提交保存
+        submit(){
             wx.canvasToTempFilePath({
                 canvasId: 'firstCanvas',
                 success: (res) => {
@@ -126,18 +143,20 @@ wx.getSystemInfo({
                             // console.log('data:image/png;base64,' + res.data)
                             let base64=res.data;
                             wx.setStorage({
-                                key: "key",
-                                base64: base64
+                                key:'base64',
+                                data:base64,
+                                success(res) {
+                                    wx.hideLoading({});
+                                    wx.navigateTo({
+                                        url: '/pages/canvasImg/canvasImg'
+                                    })
+                                }
                             })
-
-                            // console.log(base64)
                         }
 
                     })
 
-                    wx.navigateTo({
-                        url: '../show/show'
-                    })
+
                 },
 
             })

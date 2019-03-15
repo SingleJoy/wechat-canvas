@@ -7,7 +7,6 @@ var height,width;
 //获取系统信息
 wx.getSystemInfo({
     success: function (res) {
-
         width=res.screenWidth;
         height=res.screenHeight;
     },
@@ -19,9 +18,9 @@ Page({
    */
   data: {
     host:config.host,
-    interfaceCode:'ZQ839f885fc844e7bfcaff3380f33b5c',
-     contractNo:'3dd63762337e4254bbb32e69e1c6086f',
-      mobile:"18201328018",
+    interfaceCode:config.interfaceCode,
+     contractNo:config.contractNo,
+      mobile:config.mobile,
       imageList:[],
       imageHeight:width*1.414+'px',
 

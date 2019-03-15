@@ -25,7 +25,7 @@
 .sign-operation{
     transform:rotate(90deg);
     position: absolute;
-    z-index: 999;
+    z-index: 9999;
     bottom:120rpx;
     left: 90rpx;
 }

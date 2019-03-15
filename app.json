@@ -1,9 +1,11 @@
 {
   "pages": [
+    "pages/canvas/canvas",
+    "pages/scroll/scroll",
      "pages/tabs/tabs",
-     "pages/canvas/canvas",
      "pages/show/show",
-     "pages/scroll/scroll"
+     "pages/picture/picture",
+     "pages/canvasImg/canvasImg"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -29,6 +31,24 @@
         "text": "canvas",
         "iconPath": "images/canvas.png",
         "selectedIconPath": "images/canvas-active.png"
+      },
+      {
+        "pagePath": "pages/scroll/scroll",
+        "text": "scroll",
+        "iconPath": "images/tabs.png",
+        "selectedIconPath":"images/tabs-active.png"
+      },
+      {
+        "pagePath": "pages/picture/picture",
+        "text": "picture",
+        "iconPath": "images/canvas.png",
+        "selectedIconPath": "images/canvas-active.png"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "show",
+        "iconPath": "images/tabs.png",
+        "selectedIconPath":"images/tabs-active.png"
       }
     ]
   }

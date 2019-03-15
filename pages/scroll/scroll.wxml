@@ -1,3 +1,16 @@
-<view>
+<view class="scroll">
+    <scroll-view
+            scroll-y
+            style="height:{{height}}px;"
+            bindscrolltoupper="upper"
+            bindscrolltolower="lower"
+            bindscroll="scroll"
+            scroll-top="{{scrollTop}}">
 
+        <view wx:for="{{list}}" wx:key="{{key}}" >
+           <text class="title">{{item.title}}</text>
+        </view>
+
+    </scroll-view>
+    
 </view>
